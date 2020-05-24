@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const token = process.argv.length == 2 ? process.env.token : '';
+const token = process.argv.length == 2 ? process.env.token : "";
 const welcomeChannelName = "안녕하세요";
 const byeChannelName = "안녕히가세요";
 const welcomeChannelComment = "어서오세요.";
@@ -8,6 +8,7 @@ const byeChannelComment = "안녕히가세요.";
 
 client.on('ready', () => {
   console.log('켰다.');
+  client.user.setPresence({ game: { name: '!help를 쳐보세요.' }, status: 'online' })
 });
 
 client.on("guildMemberAdd", (member) => {
@@ -36,7 +37,7 @@ client.on('message', (message) => {
   }
 
   if(message.content == '초단봇') {
-    let img = 'https://cdn.discordapp.com/icons/419671192857739264/6dccc22df4cb0051b50548627f36c09b.webp?size=256';
+    let img = 'https://cdn.discordapp.com/attachments/711392948197130261/713627192604622928/1575172157005.jpg';
     let embed = new Discord.RichEmbed()
       .setTitle('초단봇')
       .setURL('http://www.naver.com')
@@ -56,10 +57,11 @@ client.on('message', (message) => {
   } else if(message.content == '초단아 도와줘') {
     let helpImg = 'https://images-ext-1.discordapp.net/external/RyofVqSAVAi0H9-1yK6M8NGy2grU5TWZkLadG-rwqk0/https/i.imgur.com/EZRAPxR.png';
     let commandList = [
-      {name: 'ping', desc: 'pong라고 대답한다(테스트)'},
-      {name: '초단봇', desc: '초단봇의 대한 설명'},
-      {name: '초단아 청소(숫자)', desc: '메시지 지우기'},
-      {name: '초단아 전체공지', desc: 'dm으로 메시지 보내기'},
+      {name: 'ping', desc: 'pong이라고 대답한다(테스트용)'},
+      {name: '초단봇', desc: '초단봇에 대한 설명'},
+      {name: '초단아 도와줘', desc: '초단봇 명령어 설명'},
+      {name: '초단아 전체공지', desc: 'dm으로 전체 공지 보내기'},
+      {name: '초단아 청소 (숫자)', desc: '텍스트 지움'},
     ];
     let commandStr = '';
     let embed = new Discord.RichEmbed()
