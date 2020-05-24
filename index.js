@@ -35,12 +35,12 @@ client.on('message', (message) => {
     return message.reply('pong');
   }
 
-  if(message.content == 'embed') {
+  if(message.content == '초단봇') {
     let img = 'https://cdn.discordapp.com/icons/419671192857739264/6dccc22df4cb0051b50548627f36c09b.webp?size=256';
     let embed = new Discord.RichEmbed()
-      .setTitle('타이틀')
+      .setTitle('초단봇')
       .setURL('http://www.naver.com')
-      .setAuthor('나긋해', img, 'http://www.naver.com')
+      .setAuthor('초단봇', img, 'http://www.naver.com')
       .setThumbnail(img)
       .addBlankField()
       .addField('Inline field title', 'Some value here')
@@ -50,22 +50,22 @@ client.on('message', (message) => {
       .addField('Inline field title', 'Some value here1\nSome value here2\nSome value here3\n')
       .addBlankField()
       .setTimestamp()
-      .setFooter('나긋해가 만듬', img)
+      .setFooter('초단이가 만듬', img)
 
     message.channel.send(embed)
-  } else if(message.content == 'embed2') {
+  } else if(message.content == '초단아 도와줘') {
     let helpImg = 'https://images-ext-1.discordapp.net/external/RyofVqSAVAi0H9-1yK6M8NGy2grU5TWZkLadG-rwqk0/https/i.imgur.com/EZRAPxR.png';
     let commandList = [
-      {name: 'ping', desc: '현재 핑 상태'},
-      {name: 'embed', desc: 'embed 예제1'},
-      {name: 'embed2', desc: 'embed 예제2 (help)'},
-      {name: '!전체공지', desc: 'dm으로 전체 공지 보내기'},
+      {name: 'ping', desc: 'pong라고 대답한다(테스트)'},
+      {name: '초단봇', desc: '초단봇의 대한 설명'},
+      {name: '초단아 청소(숫자)', desc: '메시지 지우기'},
+      {name: '초단아 전체공지', desc: 'dm으로 메시지 보내기'},
     ];
     let commandStr = '';
     let embed = new Discord.RichEmbed()
-      .setAuthor('Help of 콜라곰 BOT', helpImg)
+      .setAuthor('Help of 초단봇', helpImg)
       .setColor('#186de6')
-      .setFooter(`콜라곰 BOT ❤️`)
+      .setFooter(`초단봇❤️`)
       .setTimestamp()
     
     commandList.forEach(x => {
@@ -92,10 +92,10 @@ client.on('message', (message) => {
     }
   }
 
-  if(message.content.startsWith('!청소')) {
+  if(message.content.startsWith('초단아 청소')) {
     if(checkPermission(message)) return
 
-    var clearLine = message.content.slice('!청소 '.length);
+    var clearLine = message.content.slice('초단아 청소 '.length);
     var isNum = !isNaN(clearLine)
 
     if(isNum && (clearLine <= 0 || 100 < clearLine)) {
